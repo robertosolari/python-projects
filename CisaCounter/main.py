@@ -28,7 +28,9 @@ while True:
                 cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             cars = car_cascade.detectMultiScale(gray, 1.1, 1)
+            
             for (x,y,w,h) in cars:
+                print("number of cars: "+str(len(cars)))
                 cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)
             
             cv2.imshow('frame', frame)
